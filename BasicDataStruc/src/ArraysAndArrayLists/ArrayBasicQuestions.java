@@ -128,7 +128,84 @@ public class ArrayBasicQuestions {
         for(int i=0;i<=rd;i++){
             System.out.print(" "+ nums4[i]);
         }
+        System.out.println();
 
+        /*
+        6. Find Second-Largest Element
+
+            Problem:
+            Given an integer array nums, return the second-largest element in the array.
+
+            Example:
+            Input: nums = [10, 5, 20, 8]
+
+            Output: 10
+
+         */
+        int[] nums5 = {10,5,20,8};
+        Arrays.sort(nums5);
+        int largestElement = nums5[nums5.length-1];
+        int secondLargestElement=Integer.MIN_VALUE;
+
+        for(int i=nums5.length-1;i>=0;i--){
+            if (nums5[i]!=largestElement) {
+                secondLargestElement=nums5[i];
+                break;
+            }
+
+        }
+        System.out.println(secondLargestElement);
+        /*
+        7. Move All Zeros to End
+
+            Problem:
+            Given an array nums, move all 0s to the end of the array while
+            maintaining the relative order of non-zero elements.
+
+            Example:
+            Input: nums = [0,1,0,3,12]
+
+            Output: [1,3,12,0,0]
+         */
+        int[] nums6= {0,1,0,3,12};
+        for(int i=0;i<nums6.length-1;i++){
+            for(int j=i+1;j<nums6.length;j++){
+                if(nums6[i]==0 && nums6[j]!=0){
+                    nums6[i]=nums6[j];
+                    nums6[j]=0;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(nums6));
+        /*
+        8. Count Frequency of Elements
+
+        Problem:
+        Given an integer array nums, count the frequency of each element.
+
+        Example:
+        Input: nums = [1,2,2,3,3,3]
+
+        Output:
+        1 -> 1
+        2 -> 2
+        3 -> 3
+         */
+        int[] nums7 = {1,2,2,3,3,3};
+        Arrays.sort(nums7);
+
+        int[] freq=new int[nums7.length];
+        for(int i=0;i< freq.length;i++){
+            freq[i]=0;
+        }
+        for(int i=0;i<nums7.length;i++){
+            freq[nums7[i]]+=1;
+        }
+        for(int i=0;i<freq.length;i++){
+            if(freq[i]>0){
+                System.out.println(i + "->"+ freq[i]);
+            }
+        }
 
 
     }
