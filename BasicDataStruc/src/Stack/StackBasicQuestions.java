@@ -172,7 +172,7 @@ public class StackBasicQuestions {
         Stack<Integer> stack4 = new Stack<>();
         int ans = 0;
         for(String s2: arr){
-            if(!stack4.isEmpty() && !s2.equals("*") && !s2.equals("+")&&!s2.equals("-")&&!s2.equals("/")){
+            if(!s2.equals("*") && !s2.equals("+")&&!s2.equals("-")&&!s2.equals("/")){
                 int toPush = Integer.parseInt(s2);
                 stack4.push(toPush);
             }else if(!stack4.isEmpty() && s2.equals("+")){
@@ -218,6 +218,27 @@ public class StackBasicQuestions {
 
             Next greater for 10 → -1
          */
+        int[] nums = {4,5,2,10};
+        Stack<Integer> stack5 = new Stack<>();
+        int[] ans1= new int[nums.length];
+        for(int i=nums.length-1;i>=0;i--) {
+        	while(!stack5.isEmpty() && nums[i]>=stack5.peek()) {
+//        		System.out.println("nums" +i+ " "+nums[i]+ "peek"+ stack5.peek());
+        		stack5.pop();
+        	}
+        	
+        	if(stack5.isEmpty()) {
+        		ans1[i]=-1;
+        	}else {
+        		ans1[i]=stack5.peek();
+        		
+        	}
+        	stack5.push(nums[i]);
+        	System.out.println(stack5);
+        	
+        }
+        System.out.println(Arrays.toString(ans1));
+        
 
         /*
         7. Implement Stack Using ArrayList
