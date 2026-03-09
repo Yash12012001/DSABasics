@@ -135,6 +135,21 @@ public class StackBasicQuestions {
             Output: "ca"
          */
 
+        String s1 ="abbaca";
+        Stack<Character> stack3= new Stack<>();
+        StringBuilder builder1 = new StringBuilder();
+        for(char c: s1.toCharArray()){
+            if(!stack3.isEmpty() && stack3.peek()==c){
+                stack3.pop();
+            }else{
+                stack3.push(c);
+            }
+        }
+        while(!stack3.isEmpty()){
+            builder1.append(stack3.pop());
+        }
+        System.out.println(builder1.toString());
+
         /*
         5. Evaluate Postfix Expression
 
@@ -153,6 +168,33 @@ public class StackBasicQuestions {
 
             Output: 9
          */
+        String[] arr = {"2","1","+","3","*"};
+        Stack<Integer> stack4 = new Stack<>();
+        int ans = 0;
+        for(String s2: arr){
+            if(!stack4.isEmpty() && !s2.equals("*") && !s2.equals("+")&&!s2.equals("-")&&!s2.equals("/")){
+                int toPush = Integer.parseInt(s2);
+                stack4.push(toPush);
+            }else if(!stack4.isEmpty() && s2.equals("+")){
+                while(!stack4.isEmpty()){
+                    ans+=stack4.pop();
+                }
+            } else if(!stack4.isEmpty() && s2.equals("-")) {
+                while (!stack4.isEmpty()) {
+                    ans -= stack4.pop();
+                }
+            } else if(!stack4.isEmpty() && s2.equals("*")) {
+                while (!stack4.isEmpty()) {
+                    ans *= stack4.pop();
+                }
+            }else if(!stack4.isEmpty() && s2.equals("/") && stack4.peek()!=0) {
+                while (!stack4.isEmpty()) {
+                    ans /= stack4.pop();
+                }
+            }
+        }
+        System.out.println(ans);
+
         /*
         6. Next Greater Element
 
