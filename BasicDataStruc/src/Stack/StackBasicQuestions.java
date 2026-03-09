@@ -252,7 +252,7 @@ public class StackBasicQuestions {
 
             pop() — Removes the top element.
 
-            top() — Returns the top element.
+            top() — Returns the top element. / peek()
 
             isEmpty() — Returns whether the stack is empty.
 
@@ -268,8 +268,36 @@ public class StackBasicQuestions {
             2
             1
          */
+        /*
+        8. Min Stack
 
+            Problem:
+            Design a stack that supports the following operations in constant time:
+
+            push(x)
+
+            pop()
+
+            top()/ peek()
+
+            getMin() → returns the minimum element in the stack.
+         */
+
+        //Solution for 7 and 8 implemented in custom stack class
+        // following is creation of an object of that class and implentation of methods
+
+        CustomStack<Integer> customMinStack =new CustomStack<Integer>();
+        customMinStack.push(1);
+        customMinStack.push(2);
+        customMinStack.push(3);
+
+        System.out.println(customMinStack);
+        System.out.println(customMinStack.peek());
+        System.out.println(customMinStack.pop());
+        System.out.println(customMinStack.getMin());
 
 
     }
+
 }
+
