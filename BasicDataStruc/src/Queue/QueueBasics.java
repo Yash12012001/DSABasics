@@ -5,25 +5,7 @@ import java.util.*;
 
 public class QueueBasics {
     public static void main(String[] args) throws Exception {
-        /*
-        Below is the **revised version** of the previous sections with the following fixes you requested:
-
-        * ❌ **Removed use of data structures not yet covered**
-        * ❌ **Removed stream-style problems**
-        * ✅ **Added “Important Concepts & Methods to Practice” section before questions**
-        * ✅ **Questions only use concepts you have already learned:**
-
-          * Arrays
-          * ArrayList
-          * Stack
-          * Queue
-          * PriorityQueue
-          * ArrayDeque
-          * Strings
-        * ✅ **Minimal questions — just enough to get comfortable**
-
-        ---
-
+    	 /*
         # 1️⃣ Queue (Java Queue Interface)
 
         ## A) Important Concepts & Methods to Practice
@@ -46,7 +28,27 @@ public class QueueBasics {
         * `size()` → number of elements
         * Iterating through queue using loop
 
-        ---
+        */
+    	Queue<Integer> queue =new LinkedList<>();
+    	
+    	queue.offer(1);
+    	queue.offer(2);
+    	queue.offer(3);
+    	queue.offer(4);
+    	System.out.println(queue);
+    	System.out.println(queue.poll());
+    	System.out.println(queue);
+    	System.out.println(queue.peek());
+    	System.out.println(queue.size());
+    	System.out.println();
+    	
+    	
+    	while(!queue.isEmpty()) {
+    		System.out.println(queue.poll());
+    	}
+    	
+    	
+    	/*
 
         ## B) Practice Questions
 
@@ -93,6 +95,22 @@ public class QueueBasics {
 
         ---
         */
+    	Queue<Integer> queue1 = new LinkedList<>();
+    	queue1.offer(10);
+    	queue1.offer(20);
+    	queue1.offer(30);
+    	queue1.offer(40);
+    	
+    	queue1.poll();
+    	
+    	System.out.println(queue1);
+    	System.out.println(queue1.element());
+        
+
+
+       
+
+        
         Queue<Integer> queue2 = new LinkedList<>();
 
         queue2.add(5);
