@@ -1,7 +1,10 @@
 package Queue;
 
+import java.lang.reflect.Array;
+import java.util.*;
+
 public class QueueBasics {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /*
         Below is the **revised version** of the previous sections with the following fixes you requested:
 
@@ -89,6 +92,24 @@ public class QueueBasics {
         *(Hint: you may use a stack since it is already covered.)*
 
         ---
+        */
+        Queue<Integer> queue2 = new LinkedList<>();
+
+        queue2.add(5);
+        queue2.add(2);
+        queue2.add(9);
+        queue2.add(1);
+
+        Stack<Integer> stack = new Stack<>();
+        while(!queue2.isEmpty()){
+            stack.push(queue2.poll());
+        }
+
+        while(!stack.isEmpty()){
+            queue2.offer(stack.pop());
+        }
+        System.out.println(queue2);
+        /*
 
         ### 3. Find Maximum Element in Queue
 
@@ -108,6 +129,23 @@ public class QueueBasics {
 
         ---
 
+         */
+        Queue<Integer> queue3 = new LinkedList<>();
+        int max=Integer.MIN_VALUE;
+
+        queue3.offer(5);
+        queue3.offer(2);
+        queue3.offer(9);
+        queue3.offer(1);
+
+        for(int i: queue3){
+            max= Integer.max(max,i);
+        }
+        System.out.println(max);
+
+
+        /*
+
         ### 4. Count Even Numbers in Queue
 
         **Problem**
@@ -125,6 +163,21 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        Queue<Integer> queue4 = new LinkedList<>();
+
+        queue4.offer(2);
+        queue4.offer(5);
+        queue4.offer(8);
+        queue4.offer(7);
+        queue4.offer(10);
+        int count=0;
+        for(int i: queue4){
+            if(i%2==0)
+                count++;
+        }
+        System.out.println(count);
+        /*
 
         ### 5. Rotate Queue
 
@@ -144,6 +197,23 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        Queue<Integer> queue5 = new LinkedList<>();
+        queue5.offer(10);
+        queue5.offer(20);
+        queue5.offer(30);
+        queue5.offer(40);
+        queue5.offer(50);
+
+        Stack<Integer> temp=new Stack<>();
+        int k=2;
+        for(int i=0;i<k;i++){
+            temp.push(queue5.poll());
+            queue5.offer(temp.pop());
+        }
+        System.out.println(queue5);
+
+        /*
 
         # 2️⃣ PriorityQueue (Heap)
 
@@ -201,6 +271,19 @@ public class QueueBasics {
 
         ---
 
+         */
+
+        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
+        pQueue.offer(5);
+        pQueue.offer(1);
+        pQueue.offer(8);
+        pQueue.offer(3);
+
+        while(!pQueue.isEmpty()){
+            System.out.println(pQueue.poll());
+        }
+        /*
+
         ### 2. Find K Smallest Elements
 
         **Problem**
@@ -219,6 +302,21 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        PriorityQueue<Integer> pQueue1 = new PriorityQueue<>();
+        int[] nums= new int[]{7,10,4,3,20,15};
+        int k2=3;
+
+        for(int i=0;i< nums.length;i++){
+            pQueue1.offer(nums[i]);
+        }
+        for(int i=0;i<k2;i++){
+           System.out.print(pQueue1.poll() + "->");
+        }
+        System.out.print("END");
+        System.out.println();
+
+        /*
 
         ### 3. Find K Largest Elements
 
@@ -238,6 +336,20 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        int[] nums1= new int[]{7,10,4,3,20,15};
+        PriorityQueue<Integer> pQueue2 = new PriorityQueue<>(Collections.reverseOrder());
+        int k1=2;
+        for(int i=0;i<nums1.length;i++){
+            pQueue2.offer(nums1[i]);
+        }
+        for(int i=0;i<k1;i++){
+            System.out.print(pQueue2.poll() + "->");
+        }
+        System.out.print("END");
+        System.out.println();
+
+        /*
 
         ### 4. Sort an Array Using PriorityQueue
 
@@ -257,6 +369,16 @@ public class QueueBasics {
 
         ---
 
+        */
+        int[] nums3 = new int[] {9,4,7,1,10};
+        PriorityQueue<Integer> pQueue3 = new PriorityQueue<>();
+        for(int i: nums3){
+            pQueue3.offer(i);
+        }
+        System.out.println(pQueue3);
+
+        /*
+
         ### 5. Find Kth Smallest Element
 
         **Problem**
@@ -275,6 +397,18 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        int[] nums4= new int[] {7,10,4,3,20,15};
+        int k3=3;
+        PriorityQueue<Integer> pQueue4 = new PriorityQueue<>();
+        for(int i: nums){
+            pQueue4.offer(i);
+        }
+        for(int i=0;i<k3-1;i++){
+            pQueue4.poll();
+        }
+        System.out.println(pQueue4.element());
+        /*
 
         # 3️⃣ ArrayDeque
 
@@ -339,6 +473,15 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        deque.offerFirst(10);
+        deque.offerFirst(20);
+        deque.offerFirst(5);
+
+        deque.pollLast();
+        System.out.println(deque);
+        /*
 
         ### 2. Reverse an Array Using Deque
 
@@ -357,6 +500,14 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        int[] nums5 = new int[]{1,2,3,4};
+        ArrayDeque<Integer> deque1 = new ArrayDeque<>();
+        for(int i:nums5){
+            deque1.offerFirst(i);
+        }
+        System.out.println(deque1);
+        /*
 
         ### 3. Check Palindrome Using Deque
 
@@ -375,6 +526,24 @@ public class QueueBasics {
         ```
 
         ---
+        */
+
+        String s="racecar";
+        ArrayDeque<Character> charDeque= new ArrayDeque<>();
+        for(char c: s.toCharArray()) {
+            charDeque.offer(c);
+        }
+        boolean check = true;
+        while(charDeque.size()>1){
+            if(charDeque.pollFirst()!=charDeque.pollLast()){
+                check=false;
+                break;
+            }
+        }
+        System.out.println(check);
+
+
+        /*
 
         ### 4. Remove Elements from Both Ends
 
@@ -395,6 +564,20 @@ public class QueueBasics {
         ```
 
         ---
+        */
+        int[] nums6= new int[] { 1,2,3,4,5,6};
+        ArrayDeque<Integer> deque2= new ArrayDeque<>();
+        for(int i:nums6){
+            deque2.offer(i);
+        }
+        while(deque2.size()>3){
+            deque2.pollLast();
+            if (deque2.size()>3){
+                deque2.pollFirst();
+            }
+        }
+        System.out.println(deque2);
+        /*
 
         ### 5. Implement Stack Using ArrayDeque
 
@@ -424,18 +607,19 @@ public class QueueBasics {
 
         ---
 
-        ✅ Now the problems strictly follow your constraints:
-
-        * No **HashMap / HashSet / TreeSet / TreeMap**
-        * No **Streams**
-        * Only previously covered structures used
-        * Each section includes **concepts + methods before questions**
-
-        ---
-
-        If you'd like, I can also create a **final structured checklist of ALL questions across every data structure you mentioned** so you can **track progress like a mini DSA curriculum**.
-
          */
+        // implemented in StckWithDequeue Class
+        StackWithDeque<Integer> stack1 =new StackWithDeque<>();
+        stack1.push(10);
+        stack1.push(20);
+        stack1.push(30);
+
+        int a=stack1.pop();
+        int b= stack1.peek();
+
+        System.out.println(a+" "+b);
+
+
     }
 
 }
