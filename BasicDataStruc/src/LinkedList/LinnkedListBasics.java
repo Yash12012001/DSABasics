@@ -1,12 +1,11 @@
 package LinkedList;
 
+import java.util.*;
+
 public class LinnkedListBasics {
     public static void main(String[] args) {
-        /*
-        The Java `LinkedList` class belongs to the **Java Collections Framework**
-        and can act as both a **List** and a **Queue**, so we practice both separately.
 
-        ---
+        /*
 
         # 1️⃣ LinkedList (Used as List)
 
@@ -59,6 +58,10 @@ public class LinnkedListBasics {
         * Iterating using loops
 
         ---
+        */
+
+
+        /*
 
         ## B) Practice Questions
 
@@ -83,6 +86,17 @@ public class LinnkedListBasics {
         ```
 
         ---
+        */
+        LinkedList<Integer> linkedList = new LinkedList<>();
+
+        linkedList.add(10);
+        linkedList.add(20);
+        linkedList.add(30);
+        linkedList.addFirst(5);
+        linkedList.set(3,25);
+
+        System.out.println(linkedList);
+        /*
 
         ### 2. Find Maximum Element
 
@@ -100,7 +114,20 @@ public class LinnkedListBasics {
         9
         ```
 
-        ---
+        */
+        LinkedList<Integer> linkedList1= new LinkedList<>();
+
+        int[] nums=new int[] {3,7,2,9,4};
+        for(int i:nums){
+            linkedList1.add(i);
+        }
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<linkedList1.size();i++){
+            max=Integer.max(max,linkedList1.get(i));
+        }
+        System.out.println(max);
+
+        /*
 
         ### 3. Reverse a LinkedList
 
@@ -120,7 +147,21 @@ public class LinnkedListBasics {
 
         *(You may use a stack if needed.)*
 
-        ---
+        */
+        int[] nums1= new int[] {10,20,30,40};
+        LinkedList<Integer> linkedList2 = new LinkedList<>();
+        for(int i: nums1){
+            linkedList2.add(i);
+        }
+        Stack<Integer> stack = new Stack<>();
+        for(int i=0;i<linkedList2.size();i++){
+            stack.push(linkedList2.get(i));
+        }
+        for(int i=0;i<linkedList2.size();i++){
+            linkedList2.set(i,stack.pop());
+        }
+        System.out.println(linkedList2);
+        /*
 
         ### 4. Remove Even Numbers
 
@@ -138,7 +179,9 @@ public class LinnkedListBasics {
         [1,3,5]
         ```
 
-        ---
+        */
+
+        /*
 
         ### 5. Find Middle Element
 
