@@ -486,6 +486,39 @@ public class LinnkedListBasics {
         for(int i: qLinkedList5){
             System.out.print(i + " ");
         }
+        System.out.println();
+
+        // custom linked list implementation
+
+        CustomLinkedList<Integer> cLL= new CustomLinkedList<>();
+        cLL.addFirst(1);
+        cLL.addFirst(2);
+        cLL.addFirst(3);
+
+        cLL.display();
+        System.out.println();
+
+        cLL.addLast(0);
+        cLL.addLast(-1);
+        cLL.insert(3,3);
+
+        cLL.removeFirst();
+
+        cLL.display();
+        System.out.println();
+        cLL.removeAt(3);
+        cLL.display();
+        System.out.println();
+
+        //Doubly Linked list custom implementation
+        CustomDoublyLL<Integer> cDLL = new CustomDoublyLL<Integer>();
+
+        cDLL.addFirst(1);
+        cDLL.addFirst(2);
+        cDLL.addLast(3);
+        cDLL.addLast(4);
+        cDLL.display();
+
 
     }
 }
